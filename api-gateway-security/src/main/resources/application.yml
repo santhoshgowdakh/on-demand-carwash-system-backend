@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: GATEWAY-SERVICE-SECURITY
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+        - id: car-service
+          uri: lb://car-service
+          predicates:
+            - Path=/car/**
+        - id: promocode-service
+          uri: lb://promocode-service
+          predicates:
+            - Path=/promocode/**
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/order/**
+        - id: plan-service
+          uri: lb://plan-service
+          predicates:
+            - Path=/plan/**
+        - id: address-service
+          uri: lb://address-service
+          predicates:
+            - Path=/address/**
+          
+        
+                
+server:
+  port: 9999
+  
+ 
